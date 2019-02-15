@@ -1,21 +1,19 @@
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import model.Hospital;
+import model.Pacient;
 
-public class Main extends Application {
-    public void start(Stage stage) throws Exception {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getClassLoader().getResource("window.fxml"));
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("maven javafx");
-        stage.show();
+import java.util.ArrayList;
+import java.util.List;
 
-
-    }
+public class Main {
+    public static String csvFile = "src/main/java/data/Hospital.csv";
 
     public static void main(String[] args) {
-        launch(args);
+        Hospital hospital = new Hospital();
+        List<Pacient> p = new ArrayList<>();
+
+       p.addAll(hospital.loadPacients(csvFile));
+
 
     }
+
 }
