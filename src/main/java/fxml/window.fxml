@@ -6,27 +6,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="766.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Window">
    <children>
-      <SplitPane dividerPositions="0.12064570943075616" layoutY="-3.0" prefHeight="774.0" prefWidth="1179.0">
+      <SplitPane dividerPositions="0.12914188615123195" layoutY="-3.0" prefHeight="774.0" prefWidth="1179.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <JFButton fx:id="Buscar" layoutX="14.0" layoutY="105.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="121.0" text="Buscar" />
+                  <Button fx:id="Listar" layoutX="14.0" layoutY="151.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="121.0" text="Listar" />
+               </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
                   <TableView layoutX="14.0" layoutY="14.0" prefHeight="468.0" prefWidth="1000.0">
                     <columns>
-                      <TableColumn prefWidth="107.0" text="DNI" />
-                      <TableColumn prefWidth="87.0" text="Nom" />
-                        <TableColumn minWidth="1.0" prefWidth="97.0" text="Cognoms" />
-                        <TableColumn prefWidth="154.0" text="Fecha de nacimiento" />
-                        <TableColumn minWidth="0.0" prefWidth="179.0" text="Email" />
-                        <TableColumn minWidth="0.0" text="Gènere" />
-                        <TableColumn prefWidth="70.0" text="Pes" />
-                        <TableColumn prefWidth="76.0" text="Alçada" />
-                        <TableColumn minWidth="0.0" prefWidth="149.0" text="Telèfon" />
+                      <TableColumn fx:id="DNI" prefWidth="107.0" text="DNI" />
+                      <TableColumn fx:id="Nom" prefWidth="140.0" text="Nom" />
+                        <TableColumn fx:id="Cognoms" minWidth="1.0" prefWidth="150.0" text="Cognoms" />
+                        <TableColumn fx:id="DataNaix" prefWidth="156.0" text="Fecha de nacimiento" />
+                        <TableColumn fx:id="Genere" minWidth="0.0" prefWidth="134.0" text="Gènere" />
+                        <TableColumn fx:id="pes" prefWidth="103.0" text="Pes" />
+                        <TableColumn fx:id="Alçada" prefWidth="82.0" text="Alçada" />
+                        <TableColumn fx:id="Telefon" minWidth="0.0" prefWidth="127.0" text="Telèfon" />
                     </columns>
                   </TableView>
+                  <Button layoutX="14.0" layoutY="491.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="1000.0" text="Subir un CSV" />
                </children>
             </AnchorPane>
         </items>
