@@ -9,28 +9,47 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ControllerLlista">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="830.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ControllerLlista">
    <children>
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TableView fx:id="tablePacients" onMouseClicked="#clickTable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <TableView fx:id="tablePacients" onMouseClicked="#clickTable" prefHeight="509.0" prefWidth="830.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <JFXButton fx:id="btnLoadFile" maxWidth="1.7976931348623157E308" onAction="#clickLoadFile" text="Load" />
-            <HBox spacing="5.0">
-               <children>
-                  <JFXTextField fx:id="txtDNI" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="DNI" />
-                  <JFXTextField fx:id="txtNom" labelFloat="true" maxWidth="1.7976931348623157E308" onKeyTyped="#changeText" promptText="Nom" />
-                  <JFXTextField fx:id="txtCognoms" labelFloat="true" maxWidth="1.7976931348623157E308" onKeyTyped="#changeText" promptText="Cognoms" />
-                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" onAction="#btnCerca" text="Cerca" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" />
-                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" onAction="#btnChart" text="Chart" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" />
-               </children>
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets top="5.0" />
-               </padding>
-            </HBox>
-            <PieChart fx:id="idPieChart" />
+            <TabPane prefHeight="509.0" prefWidth="830.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Buscador">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXTextField fx:id="txtDNI" labelFloat="true" layoutX="36.0" layoutY="13.0" maxWidth="1.7976931348623157E308" promptText="DNI" />
+                              <JFXTextField fx:id="txtNom" labelFloat="true" layoutX="242.0" layoutY="13.0" maxWidth="1.7976931348623157E308" onKeyTyped="#changeText" promptText="Nom" />
+                              <JFXTextField fx:id="txtCognoms" labelFloat="true" layoutX="443.0" layoutY="13.0" maxWidth="1.7976931348623157E308" onKeyTyped="#changeText" promptText="Cognoms" />
+                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="702.0" layoutY="14.0" maxWidth="1.7976931348623157E308" onAction="#btnCerca" prefHeight="208.0" prefWidth="95.0" text="Cerca" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" />
+                              <JFXTextField fx:id="edad1" layoutX="36.0" layoutY="75.0" maxWidth="150.0" minWidth="146.0" prefHeight="37.0" prefWidth="146.0" promptText="Edad" />
+                              <JFXRadioButton layoutX="466.0" layoutY="83.0" text="Rango de Edad" />
+                              <JFXTextField layoutX="295.0" layoutY="75.0" maxWidth="141.0" minWidth="134.0" prefHeight="37.0" prefWidth="141.0" promptText="Max Edad" />
+                              <JFXTextField layoutX="36.0" layoutY="123.0" maxWidth="148.0" minWidth="144.0" prefHeight="37.0" prefWidth="148.0" promptText="Altura" />
+                              <JFXTextField layoutX="38.0" layoutY="172.0" maxWidth="148.0" minWidth="141.0" prefHeight="37.0" prefWidth="143.0" promptText="Peso" />
+                              <JFXRadioButton layoutX="466.0" layoutY="180.0" text="Rango de Peso" />
+                              <JFXRadioButton layoutX="466.0" layoutY="131.0" text="Rango de Altura" />
+                              <JFXTextField layoutX="295.0" layoutY="123.0" maxWidth="148.0" minWidth="144.0" prefHeight="37.0" prefWidth="148.0" promptText="Max Altura" />
+                              <JFXTextField layoutX="295.0" layoutY="172.0" maxWidth="148.0" minWidth="144.0" prefHeight="37.0" prefWidth="148.0" promptText="Max Peso" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Untitled Tab 2">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <PieChart fx:id="idPieChart" prefHeight="248.0" prefWidth="721.0" />
+                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="728.0" layoutY="1.0" maxWidth="1.7976931348623157E308" onAction="#btnChart" prefHeight="243.0" prefWidth="103.0" text="Chart" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
          </children>
       </VBox>
    </children>

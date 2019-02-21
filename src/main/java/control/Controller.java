@@ -21,7 +21,7 @@ public class Controller implements Initializable {
 
     }
 
-    @FXML public void onClickBtnMenu(ActionEvent actionEvent) {
+    public void onClickBtnMenu(ActionEvent actionEvent) {
         //System.out.println( ((Button)actionEvent.getSource()).getText());
         String btn = ((JFXButton)actionEvent.getSource()).getId();
 
@@ -30,7 +30,7 @@ public class Controller implements Initializable {
             AnchorPane anchorPaneLlista = null;
             try {
 
-                anchorPaneLlista = FXMLLoader.load(getClass().getResource("../fxml/llista.fxml"));
+                anchorPaneLlista = FXMLLoader.load(getClass().getClassLoader().getResource("llista.fxml"));
 
             } catch (IOException e) {
                 e.printStackTrace();
