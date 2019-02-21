@@ -97,7 +97,7 @@ public class ControllerLlista implements Initializable {
 
     public void btnCerca(ActionEvent event) {
         List<Pacient> pacients = p.stream()
-                .filter(pacient -> pacient.getDNI().equals(txtDNI.getText()))
+                .filter(pacient -> pacient.getDNI().contains(txtDNI.getText()))
                 .collect(Collectors.toList());
         if(txtDNI.getText().equals("")) {
             updateTable(p);
