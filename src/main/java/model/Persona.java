@@ -65,5 +65,7 @@ public class Persona  {
     public void setGenere(Genere genere) {
         this.genere = genere;
     }
+
+
 }
 

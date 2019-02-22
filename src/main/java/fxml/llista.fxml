@@ -24,16 +24,16 @@
                               <JFXTextField fx:id="txtDNI" labelFloat="true" layoutX="36.0" layoutY="13.0" maxWidth="1.7976931348623157E308" promptText="DNI" />
                               <JFXTextField fx:id="txtNom" labelFloat="true" layoutX="242.0" layoutY="13.0" maxWidth="1.7976931348623157E308" onKeyTyped="#changeText" promptText="Nom" />
                               <JFXTextField fx:id="txtCognoms" labelFloat="true" layoutX="443.0" layoutY="13.0" maxWidth="1.7976931348623157E308" onKeyTyped="#changeText" promptText="Cognoms" />
-                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="702.0" layoutY="14.0" maxWidth="1.7976931348623157E308" onAction="#btnCerca" prefHeight="208.0" prefWidth="95.0" text="Cerca" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" />
-                              <JFXTextField fx:id="edad1" layoutX="36.0" layoutY="75.0" maxWidth="150.0" minWidth="146.0" prefHeight="37.0" prefWidth="146.0" promptText="Edad" />
+                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="702.0" layoutY="14.0" maxWidth="1.7976931348623157E308" onAction="#calcularEdad" prefHeight="208.0" prefWidth="95.0" text="Cerca" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" />
+                              <JFXTextField fx:id="edad" layoutX="36.0" layoutY="75.0" maxWidth="150.0" minWidth="146.0" prefHeight="37.0" prefWidth="146.0" promptText="Edad" />
                               <JFXRadioButton layoutX="466.0" layoutY="83.0" text="Rango de Edad" />
-                              <JFXTextField layoutX="295.0" layoutY="75.0" maxWidth="141.0" minWidth="134.0" prefHeight="37.0" prefWidth="141.0" promptText="Max Edad" />
-                              <JFXTextField layoutX="36.0" layoutY="123.0" maxWidth="148.0" minWidth="144.0" prefHeight="37.0" prefWidth="148.0" promptText="Altura" />
-                              <JFXTextField layoutX="38.0" layoutY="172.0" maxWidth="148.0" minWidth="141.0" prefHeight="37.0" prefWidth="143.0" promptText="Peso" />
+                              <JFXTextField fx:id="maxEdad" layoutX="295.0" layoutY="75.0" maxWidth="141.0" minWidth="134.0" prefHeight="37.0" prefWidth="141.0" promptText="Max Edad" />
+                              <JFXTextField fx:id="altura" layoutX="36.0" layoutY="123.0" maxWidth="148.0" minWidth="144.0" prefHeight="37.0" prefWidth="148.0" promptText="Altura" />
+                              <JFXTextField fx:id="peso" layoutX="38.0" layoutY="172.0" maxWidth="148.0" minWidth="141.0" prefHeight="37.0" prefWidth="143.0" promptText="Peso" />
                               <JFXRadioButton layoutX="466.0" layoutY="180.0" text="Rango de Peso" />
                               <JFXRadioButton layoutX="466.0" layoutY="131.0" text="Rango de Altura" />
-                              <JFXTextField layoutX="295.0" layoutY="123.0" maxWidth="148.0" minWidth="144.0" prefHeight="37.0" prefWidth="148.0" promptText="Max Altura" />
-                              <JFXTextField layoutX="295.0" layoutY="172.0" maxWidth="148.0" minWidth="144.0" prefHeight="37.0" prefWidth="148.0" promptText="Max Peso" />
+                              <JFXTextField fx:id="maxAltura" layoutX="295.0" layoutY="123.0" maxWidth="148.0" minWidth="144.0" prefHeight="37.0" prefWidth="148.0" promptText="Max Altura" />
+                              <JFXTextField fx:id="maxPeso" layoutX="295.0" layoutY="172.0" maxWidth="148.0" minWidth="144.0" prefHeight="37.0" prefWidth="148.0" promptText="Max Peso" />
                            </children>
                         </AnchorPane>
                   </content>

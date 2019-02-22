@@ -20,6 +20,8 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -33,7 +35,7 @@ public class ControllerLlista implements Initializable {
 
     @FXML TableView<Pacient> tablePacients;
     @FXML JFXButton btnLoadFile;
-    @FXML JFXTextField txtDNI, txtNom, txtCognoms;
+    @FXML JFXTextField txtDNI, txtNom, txtCognoms,edad,maxEdad,altura,maxAltura,peso,maxPeso;
     @FXML PieChart idPieChart;
 
     @Override
@@ -119,6 +121,40 @@ public class ControllerLlista implements Initializable {
         data.addAll(pacients);
         tablePacients.setItems(data);
     }
+
+    public void calcularEdad(ActionEvent event) {
+        if(!edad.getText().equals("")){
+                    List<Pacient> pacients = p.stream()
+                    .filter(pacient ->  pacient.getEdat() == Integer.parseInt(edad.getText()))
+                    .filter(pacient ->  pacient.getEdat() == Integer.parseInt(maxEdad.getText()))
+                    .collect(Collectors.toList());
+        }else {
+            updateTable(p);
+        }
+    }
+
+    public void calcularAltura(ActionEvent event) {
+        if(!altura.getText().equals("")){
+            List<Pacient> pacients = p.stream()
+                    .filter(pacient ->  pacient.getAlçada() == Integer.parseInt(altura.getText()))
+                    .collect(Collectors.toList());
+                     updateTable(pacients);
+        }else {
+            updateTable(p);
+        }
+    }
+
+    public void calcularPeso(ActionEvent event) {
+        if(!peso.getText().equals("")){
+                    List<Pacient> pacients = p.stream()
+                    .filter(pacient ->  pacient.getPes() == Integer.parseInt(peso.getText()))
+                    .collect(Collectors.toList());
+                    updateTable(pacients);
+        }else {
+                updateTable(p);
+        }
+    }
+
 
     public void clickTable(MouseEvent event) {
         //Cal verificar si hi ha alguna selecció feta al fer doble click
