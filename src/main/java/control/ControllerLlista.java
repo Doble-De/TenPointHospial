@@ -1,6 +1,7 @@
 package control;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextField;
 import model.Hospital;
 import model.Pacient;
@@ -36,6 +37,7 @@ public class ControllerLlista implements Initializable {
     @FXML TableView<Pacient> tablePacients;
     @FXML JFXButton btnLoadFile;
     @FXML JFXTextField txtDNI, txtNom, txtCognoms,edad,maxEdad,altura,maxAltura,peso,maxPeso;
+    @FXML JFXCheckBox redad, raltura, rpeso;
     @FXML PieChart idPieChart;
 
     @Override
@@ -46,6 +48,9 @@ public class ControllerLlista implements Initializable {
         }else {
             setTableView();
         }
+        maxEdad.setVisible(false);
+        maxAltura.setVisible(false);
+        maxPeso.setVisible(false);
     }
 
     private void setTableView() {
@@ -180,5 +185,29 @@ public class ControllerLlista implements Initializable {
         idPieChart.getData().add(new PieChart.Data(Persona.Genere.DONA.toString(),dones));
         idPieChart.getData().add(new PieChart.Data(Persona.Genere.HOME.toString(),homes));
 
+    }
+
+    public void mostrarRango(ActionEvent evet) {
+
+        if (redad.isSelected()){
+            maxEdad.setVisible(true);
+        }else {
+            maxEdad.setVisible(false);
+            maxEdad.setText("");
+        }
+
+        if (raltura.isSelected()){
+            maxAltura.setVisible(true);
+        }else {
+            maxAltura.setVisible(false);
+            maxAltura.setText("");
+        }
+
+        if (rpeso.isSelected()){
+            maxPeso.setVisible(true);
+        }else {
+            maxPeso.setVisible(false);
+            maxPeso.setText("");
+        }
     }
 }

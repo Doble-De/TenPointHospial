@@ -12,7 +12,7 @@ public class MainFX extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("hospital.fxml"));
         primaryStage.setTitle("Hospital");
-        primaryStage.setScene(new Scene(root, 700, 700));
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
 
     }
