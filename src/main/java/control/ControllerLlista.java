@@ -2,7 +2,9 @@ package control;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.scene.control.Button;
 import model.Hospital;
 import model.Pacient;
 import model.Persona;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ControllerLlista implements Initializable {
 
@@ -35,9 +38,9 @@ public class ControllerLlista implements Initializable {
     private ObservableList<Pacient> data;
 
     @FXML TableView<Pacient> tablePacients;
-    @FXML JFXButton btnLoadFile;
-    @FXML JFXTextField txtDNI, txtNom, txtCognoms,edad,maxEdad,altura,maxAltura,peso,maxPeso;
-    @FXML JFXCheckBox redad, raltura, rpeso;
+    @FXML JFXButton btnLoadFile, delete;
+    @FXML JFXTextField txtDNI, txtNom, txtCognoms,edad,maxEdad,altura,maxAltura,peso,maxPeso,edadg,maxEdadg,alturag,maxAlturag,pesog,maxPesog ;
+    @FXML JFXCheckBox redad, raltura, rpeso,redadg, ralturag, rpesog;
     @FXML PieChart idPieChart;
 
     @Override
@@ -51,6 +54,10 @@ public class ControllerLlista implements Initializable {
         maxEdad.setVisible(false);
         maxAltura.setVisible(false);
         maxPeso.setVisible(false);
+        maxEdadg.setVisible(false);
+        maxAlturag.setVisible(false);
+        maxPesog.setVisible(false);
+
     }
 
     private void setTableView() {
@@ -128,35 +135,55 @@ public class ControllerLlista implements Initializable {
     }
 
     public void calcularEdad(ActionEvent event) {
-        if(!edad.getText().equals("")){
-                    List<Pacient> pacients = p.stream()
-                    .filter(pacient ->  pacient.getEdat() == Integer.parseInt(edad.getText()))
-                    .filter(pacient ->  pacient.getEdat() == Integer.parseInt(maxEdad.getText()))
-                    .collect(Collectors.toList());
+        List<Pacient> pacients = p.stream()
+                .filter(pacient ->  pacient.getEdat() == Integer.parseInt(edad.getText()))
+                .collect(Collectors.toList());
+        if(!redad.isSelected()){
+            updateTable(pacients);
         }else {
-            updateTable(p);
+            if(Integer.parseInt(edad.getText())<=Integer.parseInt(maxEdad.getText())){
+                pacients = p.stream()
+                        .filter(pacient ->  pacient.getEdat() >= Integer.parseInt(edad.getText()))
+                        .filter(pacient ->  pacient.getEdat() <= Integer.parseInt(maxEdad.getText()))
+                        .collect(Collectors.toList());
+                updateTable(pacients);
+            }
         }
     }
 
     public void calcularAltura(ActionEvent event) {
-        if(!altura.getText().equals("")){
-            List<Pacient> pacients = p.stream()
-                    .filter(pacient ->  pacient.getAlçada() == Integer.parseInt(altura.getText()))
-                    .collect(Collectors.toList());
-                     updateTable(pacients);
+        List<Pacient> pacients = p.stream()
+                .filter(pacient ->  pacient.getAlçada() == Integer.parseInt(altura.getText()))
+                .collect(Collectors.toList());
+        updateTable(pacients);
+        if(!raltura.isSelected()){
+            updateTable(pacients);
         }else {
-            updateTable(p);
+            if(Integer.parseInt(altura.getText())<=Integer.parseInt(maxAltura.getText())){
+                pacients = p.stream()
+                        .filter(pacient ->  pacient.getAlçada() >= Integer.parseInt(altura.getText()))
+                        .filter(pacient ->  pacient.getAlçada() <= Integer.parseInt(maxAltura.getText()))
+                        .collect(Collectors.toList());
+                updateTable(pacients);
+            }
         }
     }
 
     public void calcularPeso(ActionEvent event) {
-        if(!peso.getText().equals("")){
-                    List<Pacient> pacients = p.stream()
-                    .filter(pacient ->  pacient.getPes() == Integer.parseInt(peso.getText()))
-                    .collect(Collectors.toList());
-                    updateTable(pacients);
+        List<Pacient> pacients = p.stream()
+                .filter(pacient ->  pacient.getPes() == Float.parseFloat(peso.getText()))
+                .collect(Collectors.toList());
+        updateTable(pacients);
+        if(!rpeso.isSelected()){
+            updateTable(pacients);
         }else {
-                updateTable(p);
+            if(Float.parseFloat(peso.getText())<=Float.parseFloat(maxPeso.getText())){
+                pacients = p.stream()
+                        .filter(pacient ->  pacient.getPes() >= Float.parseFloat(peso.getText()))
+                        .filter(pacient ->  pacient.getPes() <= Float.parseFloat(maxPeso.getText()))
+                        .collect(Collectors.toList());
+                updateTable(pacients);
+            }
         }
     }
 
@@ -174,19 +201,56 @@ public class ControllerLlista implements Initializable {
      * @param event
      */
     public void btnChart(ActionEvent event) {
+
         idPieChart.getData().clear();
-        long dones = p.stream()
-                        .filter(pacient -> pacient.getGenere()== Persona.Genere.DONA)
-                        .count();
-        long homes = p.stream()
-                .filter(pacient -> pacient.getGenere()== Persona.Genere.HOME)
-                .count();
-        idPieChart.setTitle("Gènere");
-        idPieChart.getData().add(new PieChart.Data(Persona.Genere.DONA.toString(),dones));
-        idPieChart.getData().add(new PieChart.Data(Persona.Genere.HOME.toString(),homes));
+            long total = p.stream()
+                    .filter(pacient -> pacient.getEdat() >= Integer.parseInt(edadg.getText()) && pacient.getEdat() <= Integer.parseInt(maxEdadg.getText()))
+                    .count();
+            long resto = p.stream()
+                    .filter(pacient -> pacient.getEdat() < Integer.parseInt(edadg.getText()) && pacient.getEdat() > Integer.parseInt(maxEdadg.getText()))
+                    .count();
+            idPieChart.setTitle("Edad");
+            idPieChart.getData().add(new PieChart.Data("Total: " + total, total));
+            idPieChart.getData().add(new PieChart.Data("Resto: " + resto, resto));
+
+
+//        idPieChart.getData().clear();
+//
+//            long dones = p.stream()
+//                    .filter(pacient -> pacient.getGenere() == Persona.Genere.DONA)
+//                    .count();
+//            long homes = p.stream()
+//                    .filter(pacient -> pacient.getGenere() == Persona.Genere.HOME)
+//                    .count();
+//            idPieChart.setTitle("Gènere");
+//            idPieChart.getData().add(new PieChart.Data(Persona.Genere.DONA.toString(), dones));
+//            idPieChart.getData().add(new PieChart.Data(Persona.Genere.HOME.toString(), homes));
 
     }
 
+    public void mostrarRangog(ActionEvent evet) {
+
+        if (redadg.isSelected()){
+            maxEdadg.setVisible(true);
+        }else {
+            maxEdadg.setVisible(false);
+            maxEdadg.setText("");
+        }
+
+        if (ralturag.isSelected()){
+            maxAlturag.setVisible(true);
+        }else {
+            maxAlturag.setVisible(false);
+            maxAlturag.setText("");
+        }
+
+        if (rpesog.isSelected()){
+            maxPesog.setVisible(true);
+        }else {
+            maxPesog.setVisible(false);
+            maxPesog.setText("");
+        }
+    }
     public void mostrarRango(ActionEvent evet) {
 
         if (redad.isSelected()){
@@ -210,4 +274,23 @@ public class ControllerLlista implements Initializable {
             maxPeso.setText("");
         }
     }
+
+    public void macroMetodo(ActionEvent event) {
+        if(!txtDNI.getText().equals("")){
+            btnCerca(event);
+        }else if (!altura.getText().equals("")){
+            calcularAltura(event);
+        }else if (!edad.getText().equals("")){
+            calcularEdad(event);
+        }else if(!peso.getText().equals("")){
+            calcularPeso(event);
+
+        }else {
+            List<Pacient> pacients = new ArrayList<>(p);
+            updateTable(pacients);
+        }
+
+    }
+
+
 }

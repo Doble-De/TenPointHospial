@@ -27,6 +27,7 @@ public class Controller implements Initializable {
 
         if(btn.equals("btnLlista")) {
            // ListView lsvLlista = new ListView();
+            paneDret.getChildren().clear();
             AnchorPane anchorPaneLlista = null;
             try {
 
