@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     public String csvFile = null; //"src/hospital/data/Hospital.csv";
     @FXML AnchorPane paneDret;
+    @FXML JFXButton btnLlista;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -27,6 +28,7 @@ public class Controller implements Initializable {
 
         if(btn.equals("btnLlista")) {
            // ListView lsvLlista = new ListView();
+            paneDret.getChildren().clear();
             AnchorPane anchorPaneLlista = null;
             try {
 
@@ -36,7 +38,7 @@ public class Controller implements Initializable {
                 e.printStackTrace();
             }
             paneDret.getChildren().add(anchorPaneLlista);
-
+            btnLlista.setText("Restart");
         }else {
             paneDret.getChildren().clear();
         }

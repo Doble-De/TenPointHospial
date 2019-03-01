@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ControllerLlista">
+   <children>
+      <TableView fx:id="tablepacientsespera" layoutX="14.0" layoutY="91.0" prefHeight="493.0" prefWidth="345.0" />
+      <TableView fx:id="llistaespera" layoutX="493.0" layoutY="91.0" prefHeight="493.0" prefWidth="323.0" />
+      <Button fx:id="add" layoutX="367.0" layoutY="305.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="116.0" text="Añadir -&gt;" />
+      <JFXButton fx:id="delete" layoutX="367.0" layoutY="489.0" prefHeight="89.0" prefWidth="116.0" text="Eliminar" />
+   </children>
+</AnchorPane>

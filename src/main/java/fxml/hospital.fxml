@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXButton?>
@@ -8,6 +13,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.Controller">
     <children>
         <SplitPane dividerPositions="0.13879598662207357" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0">
@@ -16,22 +22,13 @@
                     <children>
                         <HBox prefHeight="100.0" prefWidth="800.0">
                             <children>
-                                <JFXButton fx:id="btnCerca" maxWidth="1.7976931348623157E308" onAction="#onClickBtnMenu" prefHeight="73.0" prefWidth="240.0" text="Cerca">
+                                <JFXButton fx:id="btnLlista" maxWidth="1.7976931348623157E308" onAction="#onClickBtnMenu" prefHeight="73.0" prefWidth="240.0" text="Iniciar">
                                     <font>
                                         <Font size="30.0" />
                                     </font></JFXButton>
-                                <JFXButton fx:id="btnLlista" maxWidth="1.7976931348623157E308" onAction="#onClickBtnMenu" prefHeight="73.0" prefWidth="240.0" text="Llista">
-                                    <font>
-                                        <Font size="30.0" />
-                                    </font></JFXButton>
-                                <JFXButton fx:id="btnEspera" maxWidth="1.7976931348623157E308" onAction="#onClickBtnMenu" prefHeight="74.0" prefWidth="336.0" text="Llista d'Espera">
-                                    <font>
-                                        <Font size="30.0" />
-                                    </font>
-                                </JFXButton>
                                 <ImageView fitHeight="81.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                     <HBox.margin>
-                                        <Insets left="100.0" />
+                                        <Insets left="400.0" />
                                     </HBox.margin>
                                     <image>
                                         <Image url="@logogood.png" />
